@@ -1,20 +1,20 @@
 package org.tyaa.work.test.java.sikuli.metertools5.views.interfaces;
 
 import org.tyaa.work.test.java.sikuli.metertools5.elements.Button;
-import org.tyaa.work.test.java.sikuli.metertools5.views.partial.interfaces.IChannelView;
-import org.tyaa.work.test.java.sikuli.metertools5.views.partial.interfaces.IDeviceView;
+import org.tyaa.work.test.java.sikuli.metertools5.views.partial.ChannelView;
+import org.tyaa.work.test.java.sikuli.metertools5.views.partial.DeviceView;
 
 /** Интерфейс модели корневого представления соединения/отключения */
 public interface IConnectionView {
     Button getConnectionButton();
 
-    void setConnectionButton(Button connectionButton);
+    IConnectionView setConnectionButton(Button connectionButton);
 
-    IChannelView getChannelView();
+    ChannelView getChannelView();
 
-    void setChannelView(IChannelView channelView);
+    IConnectionView setChannelView(ChannelView channelView);
 
-    IDeviceView getDeviceView();
+    DeviceView getDeviceView();
 
-    void setDeviceView(IDeviceView deviceView);
+    IConnectionView setDeviceView(DeviceView deviceView);
 }
