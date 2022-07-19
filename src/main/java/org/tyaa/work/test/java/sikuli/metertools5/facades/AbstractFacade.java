@@ -20,8 +20,9 @@ public abstract class AbstractFacade {
         this.screen = screen;
     }
 
-    protected void openApp(AppStarterDelegate starter) throws FindFailed {
+    protected void openApp(AppStarterDelegate starter) throws FindFailed, InterruptedException {
         starter.start();
+        screen.wait(5000L);
     }
 
     protected void closeApp(AppTerminatorDelegate terminator) throws FindFailed {

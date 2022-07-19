@@ -22,7 +22,7 @@ public abstract class AbstractStatefulFacade extends AbstractFacade {
     public AbstractFacade open() {
         try {
             this.openApp(() -> (new Button(screen, "light\\app-shortcut.png")).doubleClick());
-        } catch (FindFailed e) {
+        } catch (FindFailed | InterruptedException e) {
             throw new RuntimeException(e);
         }
         return this;
