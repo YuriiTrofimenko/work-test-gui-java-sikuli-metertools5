@@ -22,7 +22,7 @@ public abstract class AbstractFacade {
 
     protected void openApp(AppStarterDelegate starter) throws FindFailed, InterruptedException {
         starter.start();
-        screen.wait(5000L);
+        Thread.sleep(5000L);
     }
 
     protected void closeApp(AppTerminatorDelegate terminator) throws FindFailed {
