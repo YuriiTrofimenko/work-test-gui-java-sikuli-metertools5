@@ -33,6 +33,12 @@
             <groupId>com.sikulix</groupId>
             <artifactId>sikulixapi</artifactId>
             <version>${sikulixapi.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Тестовый движок JUnit5 -->
         <dependency>
@@ -73,11 +79,11 @@
             <version>${slf4j.version}</version>
         </dependency>
         <!-- slf4j-реализация системы журналирования -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>${slf4j.version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
