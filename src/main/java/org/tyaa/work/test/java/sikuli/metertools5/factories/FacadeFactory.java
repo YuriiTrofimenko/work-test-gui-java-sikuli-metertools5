@@ -1,19 +1,21 @@
 package org.tyaa.work.test.java.sikuli.metertools5.factories;
 
 import org.tyaa.work.test.java.sikuli.metertools5.Global;
-import org.tyaa.work.test.java.sikuli.metertools5.facades.AbstractFacade;
-import org.tyaa.work.test.java.sikuli.metertools5.facades.initial.AbstractInitialFacade;
-import org.tyaa.work.test.java.sikuli.metertools5.facades.initial.ChannelDeviceComboBoxesTestFacade;
-import org.tyaa.work.test.java.sikuli.metertools5.facades.initial.SmokeTestFacade;
-import org.tyaa.work.test.java.sikuli.metertools5.facades.stateful.AbstractStatefulFacade;
+import org.tyaa.work.test.java.sikuli.metertools5.facades.base.AbstractFacade;
+import org.tyaa.work.test.java.sikuli.metertools5.facades.base.AbstractInitialFacade;
+import org.tyaa.work.test.java.sikuli.metertools5.facades.connection.ChannelPanelFacade;
+import org.tyaa.work.test.java.sikuli.metertools5.facades.connection.ConnectionButtonFacade;
+import org.tyaa.work.test.java.sikuli.metertools5.facades.base.AbstractStatefulFacade;
+import org.tyaa.work.test.java.sikuli.metertools5.facades.connection.DevicePanelFacade;
 
 public class FacadeFactory {
 
     private static AbstractFacade abstractFacade;
     private static AbstractInitialFacade abstractInitialFacade;
     private static AbstractStatefulFacade abstractStatefulFacade;
-    private static SmokeTestFacade smokeTestFacade;
-    private static ChannelDeviceComboBoxesTestFacade channelDeviceComboBoxesTestFacade;
+    private static ConnectionButtonFacade connectionButtonFacade;
+    private static ChannelPanelFacade channelPanelFacade;
+    private static DevicePanelFacade devicePanelFacade;
 
     public static AbstractFacade getAbstractFacade() {
         return abstractFacade != null
@@ -25,28 +27,29 @@ public class FacadeFactory {
                     }
                 });
     }
-
     public static AbstractInitialFacade getAbstractInitialFacade() {
         return abstractInitialFacade != null
                 ? abstractInitialFacade
                 : (abstractInitialFacade = new AbstractInitialFacade(Global.getScreen()) {});
     }
-
     public static AbstractStatefulFacade getAbstractStatefulFacade() {
         return abstractStatefulFacade != null
                 ? abstractStatefulFacade
                 : (abstractStatefulFacade = new AbstractStatefulFacade(Global.getScreen()) {});
     }
-
-    public static SmokeTestFacade getSmokeTestFacade() {
-        return smokeTestFacade != null
-                ? smokeTestFacade
-                : (smokeTestFacade = new SmokeTestFacade(Global.getScreen()) {});
+    public static ConnectionButtonFacade getConnectionButtonFacade() {
+        return connectionButtonFacade != null
+                ? connectionButtonFacade
+                : (connectionButtonFacade = new ConnectionButtonFacade(Global.getScreen()) {});
     }
-
-    public static ChannelDeviceComboBoxesTestFacade getChannelDeviceComboBoxesTestFacade() {
-        return channelDeviceComboBoxesTestFacade != null
-                ? channelDeviceComboBoxesTestFacade
-                : (channelDeviceComboBoxesTestFacade = new ChannelDeviceComboBoxesTestFacade(Global.getScreen()) {});
+    public static ChannelPanelFacade getChannelPanelFacade() {
+        return channelPanelFacade != null
+                ? channelPanelFacade
+                : (channelPanelFacade = new ChannelPanelFacade(Global.getScreen()) {});
+    }
+    public static DevicePanelFacade getDevicePanelFacade() {
+        return devicePanelFacade != null
+                ? devicePanelFacade
+                : (devicePanelFacade = new DevicePanelFacade(Global.getScreen()) {});
     }
 }

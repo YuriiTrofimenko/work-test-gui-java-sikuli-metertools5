@@ -14,7 +14,7 @@ public class WindowSteps {
         FacadeFactory.getAbstractFacade().close();
     }
 
-    @Then("Главное окно закрывается, неактивная кнопка Подключиться больше не находится на экране")
+    @Then("Главное окно приложения больше не отображается на экране")
     public void checkAppClosed() {
         ValueWrapper<Boolean> appClosed = new ValueWrapper<>();
         FacadeFactory.getAbstractFacade().checkAppClosed(appClosed);

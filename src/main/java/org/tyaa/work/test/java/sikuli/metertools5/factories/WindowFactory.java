@@ -2,44 +2,80 @@ package org.tyaa.work.test.java.sikuli.metertools5.factories;
 
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
+import org.tyaa.work.test.java.sikuli.metertools5.Global;
 import org.tyaa.work.test.java.sikuli.metertools5.elements.Button;
 import org.tyaa.work.test.java.sikuli.metertools5.elements.ComboBox;
+import org.tyaa.work.test.java.sikuli.metertools5.elements.StaticBlock;
+import org.tyaa.work.test.java.sikuli.metertools5.utils.interfaces.IPropsReader;
 import org.tyaa.work.test.java.sikuli.metertools5.views.ConnectionView;
 import org.tyaa.work.test.java.sikuli.metertools5.views.partial.ChannelView;
 import org.tyaa.work.test.java.sikuli.metertools5.views.partial.DeviceView;
-import org.tyaa.work.test.java.sikuli.metertools5.views.partial.interfaces.IChannelView;
-import org.tyaa.work.test.java.sikuli.metertools5.views.partial.interfaces.IDeviceView;
 import org.tyaa.work.test.java.sikuli.metertools5.windows.MainWindow;
 
 /** Фабрика составных моделей окна приложения */
 public class WindowFactory {
 
-    /** Метод получения модели главного окна при первом открытии пользователем для элементарного Smoke-теста
-     * (с пустыми моделями панелей Канал связи и Усройство) */
-    public static MainWindow getInitialMainWindow(Screen screen) throws FindFailed {
+    /**
+     * Метод получения модели главного окна с пустыми моделями содержимого клиентской области
+     * @param screen Контекст экрана
+     * */
+    public static MainWindow getMainWindowFrame(Screen screen) throws FindFailed {
         return new MainWindow(
-                new Button(screen, "light\\main-window\\close-button.png"),
-                new Button(screen, "light\\main-window\\maximize-button.png"),
+                new StaticBlock(screen, Global.getImagePathGetter().getImagePathByKey(IPropsReader.WINDOW_TITLE_IMAGE_PATH)),
+                new Button(screen, Global.getImagePathGetter().getImagePathByKey(IPropsReader.WINDOW_CLOSE_IMAGE_PATH)),
+                new Button(screen, Global.getImagePathGetter().getImagePathByKey(IPropsReader.WINDOW_MAXIMIZE_IMAGE_PATH)),
                 new ConnectionView(
-                        new Button(screen, "light\\main-window\\connection-view\\connection-button_connect_disabled_ru-RU.png"),
-                        new ChannelView(null) {},
-                        new DeviceView(null) {}
+                        new Button(screen, null),
+                        new ChannelView(null) {
+                        },
+                        new DeviceView(null) {
+                        }
                 )
         );
     }
 
-    /** Метод получения модели главного окна при первом открытии пользователем
-     * (с моделями панелей Канал связи и Усройство в их исходном состоянии - ComboBox не установлены и свернуты) */
-    public static MainWindow getInitialMainWindowWithChannelDeviceViews(Screen screen) throws FindFailed {
-        MainWindow mainWindow = getInitialMainWindow(screen);
+    /**
+     * Метод получения модели главного окна только с моделью кнопки подключения
+     * @param screen Контекст экрана
+     * */
+    public static MainWindow getMainWindowWithConnectionButton(Screen screen, String connectionButtonText) throws FindFailed {
+        MainWindow mainWindow = getMainWindowFrame(screen);
+        mainWindow.getConnectionView().setConnectionButton(new Button(
+                screen,
+                Global.getImagePathGetter().getLocalizedImagePathByText(connectionButtonText)
+        ));
+        return mainWindow;
+    }
+
+    /**
+     * Метод получения модели главного окна только с моделями панелей Канал связи и Усройство,
+     * содержащими только свёрнутые ComboBox
+     * @param screen Контекст экрана
+     * @param selectedChannelText Текст выбранного пункта выпадалющего списка типа канала связи
+     * @param selectedDeviceText Текст выбранного пункта выпадалющего списка типа устройства
+     * */
+    public static MainWindow getMainWindowWithChannelAndDeviceComboBoxes(
+            Screen screen,
+            String selectedChannelText,
+            String selectedDeviceText
+    ) throws FindFailed {
+        MainWindow mainWindow = getMainWindowFrame(screen);
+        String selectedChannelSampleImagePath =
+                selectedChannelText != null
+                        ? Global.getImagePathGetter().getLocalizedImagePathByText(selectedChannelText)
+                        : null;
+        String selectedDeviceSampleImagePath =
+                selectedDeviceText != null
+                        ? Global.getImagePathGetter().getLocalizedImagePathByText(selectedDeviceText)
+                        : null;
         mainWindow.getConnectionView()
                 .setChannelView(
                         new ChannelView(
-                                new ComboBox(screen, "\\light\\main-window\\connection-view\\channel-view\\channels-combo-box_unset_collapsed_ru-RU.png")
+                                new ComboBox(screen, selectedChannelSampleImagePath)
                         )
                 ).setDeviceView(
                         new DeviceView(
-                                new ComboBox(screen, "\\light\\main-window\\connection-view\\device-view\\devices-combo-box_unset_collapsed_ru-RU.png")
+                                new ComboBox(screen, selectedDeviceSampleImagePath)
                         )
                 );
         return mainWindow;

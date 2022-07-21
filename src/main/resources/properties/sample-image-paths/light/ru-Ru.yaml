@@ -1,0 +1,24 @@
+# *** Словарь "текст на экране - путь к образцу изображения" ***
+# ** Локаль ru-Ru **
+# * Главное окно - Представление соединения *
+неактивная_Подключиться: "main-window\\connection-view\\connection-button_connect_disabled"
+# * Главное окно - Представление соединения - Панель каналов связи - Пункты выпадающего списка выбора типа канала связи *
+пункт_RS232: "main-window\\connection-view\\channel-view\\channel-combo-box\\items\\channels-combo-box-item_rs232"
+пункт_Bluetooth: "main-window\\connection-view\\channel-view\\channel-combo-box\\items\\channels-combo-box-item_bluetooth"
+пункт_Ethernet: "main-window\\connection-view\\channel-view\\channel-combo-box\\items\\channels-combo-box-item_ethernet"
+пункт_Hayes_Modem: "main-window\\connection-view\\channel-view\\channel-combo-box\\items\\channels-combo-box-item_hayes-modem"
+пункт_M2MConnect: "main-window\\connection-view\\channel-view\\channel-combo-box\\items\\channels-combo-box-item_m2mconnect"
+# * Главное окно - Представление соединения - Панель каналов связи - Выбранные пункты выпадающего списка выбора типа канала связи *
+-Выберите_канал_связи-: "main-window\\connection-view\\channel-view\\channel-combo-box\\channels-combo-box_unset_collapsed"
+RS232: "main-window\\connection-view\\channel-view\\channel-combo-box\\channels-combo-box_set-rs232_collapsed"
+Bluetooth: "main-window\\connection-view\\channel-view\\channel-combo-box\\channels-combo-box_set-bluetooth_collapsed"
+Ethernet: "main-window\\connection-view\\channel-view\\channel-combo-box\\channels-combo-box_set-ethernet_collapsed"
+Hayes_Modem: "main-window\\connection-view\\channel-view\\channel-combo-box\\channels-combo-box_set-hayes-modem_collapsed"
+M2MConnect: "main-window\\connection-view\\channel-view\\channel-combo-box\\channels-combo-box_set-m2mconnect_collapsed"
+# * Главное окно - Представление соединения - Панель каналов связи - Пункты выпадающего списка выбора типа устройства *
+пункт_Устройство_DLMS: "main-window\\connection-view\\device-view\\device-combo-box\\items\\devices-combo-box-item_dlms-device"
+пункт_Счётчик_"МИРТЕК": "main-window\\connection-view\\device-view\\device-combo-box\\items\\devices-combo-box-item_mirtek-meter"
+# * Главное окно - Представление соединения - Панель каналов связи - Выбранные пункты выпадающего списка выбора типа устройства *
+-Выберите_устройство-: "main-window\\connection-view\\device-view\\device-combo-box\\devices-combo-box_unset_collapsed"
+Устройство_DLMS: "main-window\\connection-view\\device-view\\device-combo-box\\devices-combo-box_set-dlms-device_collapsed"
+Счётчик_"МИРТЕК": "main-window\\connection-view\\device-view\\device-combo-box\\devices-combo-box_set-mirtek-meter_collapsed"
